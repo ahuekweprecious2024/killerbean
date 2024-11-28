@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Countdown Timer</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1a1a2e, #16213e) ;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+.company-name {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: slide-in 1s ease-in-out;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.status-text {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  animation: fade-in 2s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.timer-widget {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border: 8px solid white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.circle span {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.circle p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.popup-content {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.popup-content p {
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+
+#close-btn {
+  background: #2575fc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="company-name">KILLER BEAN</h1>
+    <p class="status-text">Payment is under review</p>
+    <div class="timer-widget">
+      <div class="circle">
+        <span id="countdown">60</span>
+        <p>Seconds</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <h2>Payment Not Valid</h2>
+      <p>We couldn't match any transaction that's linked to the details you submitted.</p>
+      <button id="close-btn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    let countdown = 60;
+const countdownElement = document.getElementById("countdown");
+const popup = document.getElementById("popup");
+const closeBtn = document.getElementById("close-btn");
+
+const timer = setInterval(() => {
+  countdown -= 1;
+  countdownElement.textContent = countdown;
+
+  if (countdown <= 0) {
+    clearInterval(timer);
+    popup.classList.remove("hidden");
+    popup.style.opacity = "1";
+    popup.style.pointerEvents = "auto";
+  }
+}, 1000);
+
+closeBtn.addEventListener("click", () => {
+  popup.style.opacity = "0";
+  popup.style.pointerEvents = "none";
+});
+  </script>
+</body>
+</html>

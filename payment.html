@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Killer Bean</title>
+  <style>
+    /* General Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f3460);
+  color: #fff;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.payment-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #333;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.payment-button img {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+}
+
+.payment-button span {
+  text-transform: uppercase;
+}
+
+.payment-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.crypto {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  color: white;
+}
+
+.bank {
+  background: linear-gradient(45deg, #24c6dc, #514a9d);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .payment-button img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .payment-button {
+    font-size: 1em;
+  }
+}
+
+.containerr {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #292b3e;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .note {
+            background: #ffdd44;
+            color: #292b3e;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .steps {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .steps li {
+            background: #3e3e57;
+            margin: 10px 0;
+            padding: 15px;
+            border-left: 4px solid #ffcc00;
+            border-radius: 8px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .steps li:hover {
+            transform: scale(1.02);
+        }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Killer Bean Studios</h1>
+    <p>Select your preferred payment method</p>
+    <div class="button-container">
+      <button class="payment-button crypto" onclick="redirectTo('crypto.html')">
+        <img src="https://cdn-icons-png.flaticon.com/128/15301/15301795.png" alt="Crypto Payment">
+        <span>Pay via Crypto</span>
+      </button>
+      <button class="payment-button bank" onclick="redirectTo('bank.html')">
+        <img src="https://cdn-icons-png.flaticon.com/128/4488/4488426.png" alt="Bank Payment">
+        <span>Pay via Bank Transfer</span>
+      </button>
+    </div>
+  </div>
+  
+  
+  <div class="containerr">
+        <h1>Payment Instructions</h1>
+        <p>Thank you for choosing to play <strong>Killer Bean</strong>. Please follow the instructions below to complete your payment and access the game:</p>
+        
+        <h2>Steps to Complete Payment:</h2>
+        <ol class="steps">
+          <li> Select your preferred payment method</li>
+            <li>Make a payment of <strong>$1.02</strong> to the account details provided on the payment page.</li>
+            <li>After completing the payment, send/upload your payment confirmation (e.g., receipt , depositors name , email , transaction ID or session ID).</li>
+            <li>Once we verify your payment, the download and installation process will begin immediately.</li>
+            <li>You'll receive a confirmation email with the game download link and installation instructions.</li>
+        </ol>
+
+        <h2>Important Notes:</h2>
+        <div class="note">
+            Ensure the payment reference matches your registered email for faster verification.
+        </div>
+
+    </div>
+  
+  
+  <script>
+  // Function to handle redirection
+  function redirectTo(page) {
+    // Navigate to the specified payment page
+    window.location.href = page;
+  }
+
+  // Example: Simulating payment confirmation submission (if needed)
+  // This is optional if you want to extend functionality
+  function submitConfirmation() {
+    // Example: Capture user input for confirmation details
+    const confirmationDetails = {
+      reference: prompt("Enter your payment reference:"),
+      email: prompt("Enter your registered email:"),
+    };
+
+    if (confirmationDetails.reference && confirmationDetails.email) {
+      alert(`Thank you! Your payment is under review. Reference: ${confirmationDetails.reference}`);
+      // Here you could add AJAX/Fetch requests to send data to the server
+    } else {
+      alert("Please provide all required details!");
+    }
+  }
+</script>
+</body>
+</html>

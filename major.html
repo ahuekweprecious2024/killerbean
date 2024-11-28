@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Killer Bean Game</title>
+    <style>
+    /* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f3460);
+    color: #f4f4f9;
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #0f3460;
+    color: #f4f4f9;
+    border-bottom: 2px solid #5c27d6;
+    animation: fadeIn 1s ease-in-out;
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Game Description */
+.description {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    animation: slideIn 1s ease-in-out;
+}
+
+.description h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #f4f4f9;
+}
+
+.description p {
+    text-align: justify;
+    font-size: 18px;
+    color: #d4d4d4;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stat {
+    text-align: center;
+    font-size: 16px;
+    color: #f4f4f9;
+    animation: zoomIn 1.2s ease-in-out;
+}
+
+.stat img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+/* Game Video Section */
+.game-video, .additional-videos {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: slideIn 1s ease-in-out;
+}
+
+.game-video h2, .additional-videos h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #f4f4f9;
+}
+
+video, img {
+    display: block;
+    max-width: 100%;
+    margin: 15px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Comments Section */
+.comments-section {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.comments-section h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #f4f4f9;
+    margin-bottom: 20px;
+}
+
+.comment {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid #5c27d6;
+    color: #d4d4d4;
+}
+
+.comment strong {
+    color: #f4f4f9;
+}
+
+.comment p {
+    margin: 0;
+}
+
+/* Download Section */
+.download-section {
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: zoomIn 1.2s ease-in-out;
+}
+
+.download-section h2 {
+    font-size: 28px;
+    color: #f4f4f9;
+    margin-bottom: 10px;
+}
+
+.download-section p {
+    font-size: 20px;
+    color: #d4d4d4;
+    margin-bottom: 20px;
+}
+
+#downloadButton {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #5c27d6, #3b1aa8);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+#downloadButton:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #3b1aa8, #5c27d6);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0f3460;
+    color: #f4f4f9;
+    position: relative;
+    bottom: 0;
+    width: 90%;
+    border-top: 2px solid #5c27d6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Killer Bean</h1>
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1597080/header.jpg?t=1732394139" alt="Killer Bean Game Banner">
+    </header>
+
+    <section class="description">
+        <h2>Game Details</h2>
+        <p>
+            You are Killer Bean, a rogue assassin coffee bean, who takes out the trash in this world, one bullet at a time. 
+            The story changes every time you start a new campaign in this first person/third person, roguelike shooter.
+        </p>
+        <div class="game-stats">
+            <div class="stat">
+                <img src="https://cdn-icons-png.flaticon.com/128/2550/2550364.png" alt="Downloads">
+                <p>27M+</p>
+            </div>
+            <div class="stat">
+                <img src="https://cdn-icons-png.flaticon.com/128/4325/4325930.png" alt="Rated">
+                <p>Rated 12</p>
+            </div>
+            <div class="stat">
+                <img src="https://cdn-icons-png.flaticon.com/128/9732/9732828.png" alt="Reviews">
+                <p>2.1M Reviews</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="game-video">
+        <h2>Watch Gameplay Video</h2>
+        <video controls>
+            <source src="https://video.fastly.steamstatic.com/store_trailers/257030613/movie480_vp9.webm?t=1718180635" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <section class="additional-videos">
+        <h2>Other Game Clips</h2>
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1597080/extras/KB_breakdance_D75_L55_USE.gif?t=1732394139" alt="Additional Game Clip">
+        <p>After being betrayed by the Shadow Agency and learning the truth about their evil ways, Killer Bean has made it his life goal to destroy them. Yet this is easier said than done, as Killer Bean will face armies of enemies, and mysterious Shadow Beans who are better trained and more powerful than him.</p>
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1597080/extras/steam_gif_slomo_melee.gif?t=1732737848" alt="additional game clip">
+        <p>This is a first person/third person, roguelike shooter. Every time you start a new single player campaign, everything changes. The locations change, the missions change, the characters change, the bosses change, and most of all, the story changes. Characters who you trusted before, may turn against you. Enemies who tried to kill you, may end up helping you. Simple missions can turn into deadly traps. No two campaigns are the same.</p>
+    </section>
+
+    <section class="comments-section">
+        <h2>Players Reviews</h2>
+        <p> reviews are selected from individuals with the highest rating stars</p>
+        <div class="comment">
+            <p><strong>Emmanuel Chukwuemeka</strong>: Amazing game! I love the gameplay and the random story changes additional it's just like in the movies.</p>
+        </div>
+        <div class="comment">
+            <p><strong>Jane Smith</strong>: Incredible graphics and story twists! Worth every penny.</p>
+        </div>
+        <div class="comment">
+            <p><strong>Mike Lee</strong>: It's great, but I wish it had more multiplayer options.</p>
+        </div>
+    </section>
+
+    <section class="download-section">
+        <h2>Download Killer Bean</h2>
+        <p>Price: $1.02</p>
+        <button id="downloadButton"> Install now</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Killer Bean Studios. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.getElementById('downloadButton').addEventListener('click', function () {
+    // Redirect to the payment page
+    window.location.href = 'payment.html';
+});
+    </script>
+</body>
+</html>

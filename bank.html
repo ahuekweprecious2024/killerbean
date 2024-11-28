@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Payment Page</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            margin: 0;
+            color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ffde59;
+        }
+
+        .details-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .details-container p {
+            margin: 10px 0;
+        }
+
+        .form-container {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .form-container input, .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-container input[type="file"] {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f5f5f5;
+        }
+
+        .form-container input {
+            background: rgba(255, 255, 255, 0.2);
+            color: #000;
+        }
+
+        .form-container button {
+            background: #ffde59;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background: #ffc107;
+        }
+
+        .instructions {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: left;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Killer Bean Studios</h1>
+
+        <div class="details-container">
+            <p><strong>Bank Name:</strong> Wema Bank</p>
+            <p><strong>Account Number:</strong> 9784234571</p>
+            <p><strong>Account Name:</strong> BIGSWISS/ ADELEKE DAVIDO</p>
+        </div>
+        
+<div class="details-container">
+  <p> Amount: <strong> ₦1,721.89</strong></p>
+  </div>
+  
+        <form class="form-container" id="paymentForm" enctype="multipart/form-data" method="POST">
+            <label for="transactionId">Transaction ID</label>
+            <input type="text" id="transactionId" name="transactionId" required>
+
+            <label for="sessionId">Session ID</label>
+            <input type="text" id="sessionId" name="sessionId" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="whatsapp">WhatsApp Number</label>
+            <input type="tel" id="whatsapp" name="whatsapp" required>
+
+            <label for="receipt">Upload Payment Receipt</label>
+            <input type="file" id="receipt" name="receipt" accept="image/*,application/pdf" required>
+<a href="timer.html">
+            <button type="button" onclick="sendPaymentInfo()">Submit Payment</button>
+            </a>
+            
+        </form>
+        
+        <div class="instructions">
+            <p><strong>Instructions:</strong></p>
+            <ul>
+                <li>Fill in all required fields in the form.</li>
+                <li>Ensure the transaction details match your payment.</li>
+                <li>Upload a clear image or PDF of your payment receipt.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function sendPaymentInfo() {
+            const form = document.getElementById("paymentForm");
+            const formData = new FormData(form);
+
+            const email = "shoppifyinc@gmail.com";
+            const subject = "Payment Details for Killer Bean game Download";
+            const body = `
+Transaction ID: ${formData.get('transactionId')}
+Session ID: ${formData.get('sessionId')}
+Email: ${formData.get('email')}
+WhatsApp Number: ${formData.get('whatsapp')}
+Receipt: ${formData.get('receipt').name}
+`;
+
+            const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Simulate sending email (browser-based solution)
+            window.location.href = mailtoLink;
+
+            alert("Payment information will be sent to the email.");
+        }
+    </script>
+</body>
+</html>
